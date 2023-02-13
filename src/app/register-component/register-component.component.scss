@@ -1,0 +1,39 @@
+
+.formComponent{
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    
+}
+
+.section{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.inputField{
+    width: 200px;
+    padding: 5px 4px;
+}
+.warning{
+    color: red;
+    
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+button{
+    display: flex;
+    align-self: center;
+
+}
+button:hover{
+    cursor: pointer;
+}
+.btns{
+    margin-top: 20px;
+
+}

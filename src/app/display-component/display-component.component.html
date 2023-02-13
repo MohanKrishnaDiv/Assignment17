@@ -1,0 +1,13 @@
+<div>
+    <p><span>Name: </span><span>{{data.firstName}}</span> <span>{{data.lastName}}</span></p>
+    <p><span>User Name: </span><span>{{data.userName}}</span></p>
+    <p><span>Age: </span><span>{{data.age}}</span></p>
+    <p><span>Email: </span><span>{{data.email}}</span></p>
+    <p><span>Phone no: </span><span>{{data.mobileNumber}}</span></p>
+    <p><span>First Label: </span><span>{{data.additionalInfo}}</span></p>
+    
+    </div>
+    <!-- <div>{{}}</div> -->
+    <div *ngFor="let item of additionalDataArray">
+        <strong>{{item.dataLabel}}: {{item.labelData}}</strong>
+    </div>

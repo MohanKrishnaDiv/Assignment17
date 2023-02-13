@@ -1,0 +1,119 @@
+<div class="screen">
+    <div  class="formComponent">
+    
+    <form  (ngSubmit)="show()" [formGroup]="register">
+      <fieldset>
+      <legend>Registration Form</legend>
+      <!-- First Name -->
+      <div class="section">
+    
+      
+      <label for="First Name" >First Name: </label>
+      <div class="fieldAndAlert">
+      <input type="text" formControlName="firstName" placeholder="Enter First Name" class="inputField"  onkeydown="return /[a-zA-Z]/i.test(event.key)"onkeydown="return /[a-zA-Z]/i.test(event.key)">
+    
+      <div *ngIf="firstName && firstName.touched && firstName.errors?.['required']" class="warning">*Required</div>
+      <div *ngIf="firstName && firstName.invalid && firstName.touched && firstName.errors?.['minlength']" class="warning">*Enter Atleast 3 characters</div>
+      <div *ngIf="firstName && firstName.invalid && firstName.touched && firstName.errors?.['maxlength']" class="warning">*Enter less than 256 characters</div>
+      
+    </div>
+    </div>
+    <!-- Last Name -->
+    <div class="section">
+      
+      <label for="Last Name" >Last Name: </label>
+      <div class="fieldAndAlert">
+      <input type="text" formControlName="lastName" placeholder="Enter Last Name" class="inputField"  onkeydown="return /[a-zA-Z]/i.test(event.key)"onkeydown="return /[a-zA-Z]/i.test(event.key)">
+    
+      <div *ngIf="lastName && lastName.touched && lastName.errors?.['required']" class="warning">*Required</div>
+      <div *ngIf="lastName && lastName.invalid && lastName.touched && lastName.errors?.['minlength']" class="warning">*Enter Atleast 3 characters</div>
+      <div *ngIf="lastName && lastName.invalid && lastName.touched && lastName.errors?.['maxlength']" class="warning">*Enter less than 256 characters</div>
+      
+    </div>
+    </div>
+    <!-- Age -->
+    <div class="section">
+      
+      <label for="Age" >Age: </label>
+      <div class="fieldAndAlert">
+      <input type="number" formControlName="age" placeholder="Enter Age" class="inputField"  >
+    
+      <div *ngIf="age && age.touched && age.errors?.['required']" class="warning">*Required</div>
+     
+      <div *ngIf="age && age.invalid && age.touched && age.errors?.['max']" class="warning">*Less Than 999</div>
+      
+    </div>
+    </div>
+    <!-- Phone Number -->
+    <div class="section">
+      
+      <label for="Phone Number" >Phone Number: </label>
+      <div class="fieldAndAlert">
+      <input type="text" formControlName="mobileNumber" placeholder="Enter Phone Number" class="inputField"  >
+    
+      <div *ngIf="mobileNumber && mobileNumber.touched && mobileNumber.errors?.['required']" class="warning">*Required</div>
+     
+      <div *ngIf="mobileNumber && mobileNumber.invalid && mobileNumber.touched " class="warning">*should be a 10 digit number </div>
+      
+    </div>
+    </div>
+    <!-- Email -->
+    
+    <div class="section">
+      
+      <label for="Email" >Email: </label>
+      <div class="fieldAndAlert">
+      <input type="email" formControlName="email" placeholder="Enter Email" class="inputField"  >
+    
+      <div *ngIf="email && email.touched && email.invalid " class="warning">*Enter a valid Mail</div>
+    </div>
+    </div>
+    <!-- User name -->
+    <div class="section">
+      
+      <label for="User Name" >User Name:</label>
+      <div class="fieldAndAlert">
+      <input type="text" formControlName="userName" placeholder="Enter User Name" class="inputField" pattern="^[a-zA-Z0-9]+([._]?[.-]?[a-zA-Z0-9]+)*$"  >
+    
+      <div *ngIf="userName && userName.touched && userName.invalid && userName.errors?.['required'] " class="warning">*Enter User Name</div>
+      <div *ngIf="userName && userName.touched && userName.errors?.['pattern']" class="warning">*Enter a valid User Name</div>
+    </div>
+    </div>
+    <!-- Additional INFO -->
+    <!-- <div class="section">
+      
+      <label for="User Name" >Additional Info:</label>
+      <div class="fieldAndAlert">
+      <input [(ngModel)]="info" type="text" formControlName="additionalInfo" placeholder="Enter User Name" class="inputField" pattern="^[a-zA-Z0-9]+([._]?[.-]?[a-zA-Z0-9]+)*$"  >
+    
+    </div>
+    </div> -->
+    <!-- Common Component -->
+    <app-common-component (childToParrent)="val($event)"></app-common-component>
+    
+    <div *ngFor="let item of typeArray">
+      <app-common-component></app-common-component>
+      <!-- <div>Addional Info: {{info}}</div>
+    <div >Addional Info Value:{{childtoParent}}</div> -->
+    </div>
+    <button type="button" (click)="addComponent()" >Add</button>
+    <!-- <div>Addional Info: {{info}}</div>
+    <div >Addional Info Value:{{childtoParent}}</div> -->
+    
+    
+    <!-- Buttons Field -->
+    
+    <!-- 293c3aad85e761a0c077c3f3c3277e1deeb569a4 -->
+    <div class="section btns">
+      <button type="reset">Reset</button>
+      <button type="submit" >Submit</button> <!-- [disabled]="!register.valid" -->
+    </div>
+    
+    </fieldset>
+      
+    </form>
+    </div>
+    </div>
+    
+    
+    

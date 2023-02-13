@@ -1,0 +1,23 @@
+<div class="dropDownComponent">
+    <!-- FORM -->
+    <form [formGroup]="dropDownComponent">
+      <div class="childComponent">
+        <label>Additional data label</label>
+         <input type="text" formControlName='additionalDataLabel' (focusout)="getLabelName()">
+        <!-- Looping the Options -->
+    <select (change)="selectOption($event)" formControlName="selectedType" >
+      <option [value]="item.id" *ngFor="let item of items">{{item.name}}</option>
+    </select>
+    <input type="text" formControlName="inputname" (focusout)="AdditionalInputValue($event)" >
+  </div>
+  </form>
+  <div>
+    <!-- ALERT -->
+  <div *ngIf="inputname?.invalid && (inputname?.dirty || inputname?.touched)">
+    <div *ngIf="inputname?.errors?.['pattern']" class="warning">*Invalid input</div>
+    
+  </div>
+  
+  </div>
+  <div>Additional Data Label : {{labelDataName}}</div>
+  <div>Additional Data Info : {{labelData}}</div>
